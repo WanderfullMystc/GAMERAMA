@@ -90,7 +90,6 @@ nav a:hover
 .high-light-games
 {
     position: relative;
-    left: 30%;
 
 }
 .high-light-games img
@@ -104,6 +103,7 @@ nav a:hover
 .display-games
 {
     display: flex;
+    flex-wrap: wrap;
     
 }
 .display-games img
