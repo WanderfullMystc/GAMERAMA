@@ -1,5 +1,6 @@
 *
 {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -23,23 +24,19 @@ nav a
 {
     color: #dededeac;
     text-decoration: none;
+    font-family: "press start 2p";
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
 }
 nav a:hover
 {
     color: #8d00f9;
 }
-/* #logo_title
-{
-    color:#7435d4;
-    font-family: "press start 2p";
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-} */
 .logo_site
 {
     padding: 5px;
-    width: 8vh;
+    width: 15vh;
 }
 #search-icon
 {
@@ -86,10 +83,6 @@ nav a:hover
     color: #000000bf;
 
 }
-.page-content
-{
-    /* display: flex; */
-}
 .content
 {
     display: flex;
@@ -107,9 +100,15 @@ nav a:hover
     width: 100vh;
 
 }
+.display-games
+{
+    display: flex;
+    
+}
 .display-games img
 {
     position: relative;
+    height: 25vh;
     padding: 5vh;
     border-radius: 10vh;
 }

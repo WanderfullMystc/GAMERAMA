@@ -1,4 +1,8 @@
 
+let position = [];
+let data;
+let lim = 10;
+let textLabel = document.getElementById("search-text");
 const options = {
 	method: 'GET',
 	headers: {
@@ -6,41 +10,60 @@ const options = {
 		'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
 	}
 };
+function home() {
+	fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?short-by=popularity', options)
+	.then(gamesJson => gamesJson.json())
+	.then(gamesJson => handler(gamesJson))
+	.catch(err => console.error(err));
+}
+// filterGames();
 
-fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options)
-		.then(gamesJson => gamesJson.json())
-		.then(gamesJson => handler(gamesJson))
-		.catch(err => console.error(err));
-let data;
-let textLabel = document.getElementById("search-text").value;
-// search(gamesJson);
+function filterGames(category) {
+	// var test = documment.getElementById("cat-1");
+var platafor = filterPlataform(k);
+var category = filterCategory();
+console.log(platafor);
+	fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?platform=${plataform}&category=${category}&sort-by=release-date`, options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
+
+}
+console.log(typeof(document.getElementById("search-text")));
 function handler(gamesJson) {
 	search(gamesJson);
-	addGamesToHTML(gamesJson);
+	addGeneralGamesToHTML(gamesJson);
+	addHighlightGamesToHTML(gamesJson);
+	console.log(gamesJson);
+
 }
 
-
+	// document.getElementById("search-text").addEventListener("inputs", search() );
 function search(gamesJson) {
-	console.log(gamesJson);
-	console.log(textLabel);
-
 	for(var i=0; i<Object.keys(gamesJson).length; i++) {
-		if(gamesJson[i].title === textLabel) {
-		 	var position = i;
+		if(gamesJson[i].title.toLowerCase() === textLabel.value.toLowerCase()) {
+		 	position.push(i);
 			console.log(i);
 		}
 	}
-
 }
 
-function addGamesToHTML(gamesJson) {
-	var displayGames; 
-	displayGames.innerHTML =    `<img src="${gamesJson[0].thumbnail}">
-            <h1>${gamesJson[0].title}</h1>
-            <h2>${gamesJson[0].short_description}</h2>
-            <h3>${gamesJson[0].release_date}</h3>`;
-	var s;
-	s.document.getElementById()
-	console.log(typeof(displayGames));
-	// displayGames = s.document.getElementById("high-light-games").innerHTML;
+function addHighlightGamesToHTML(gamesJson) {
+	var displayGames = document.getElementById("high-light-game");
+		displayGames.innerHTML =   
+			`<img src="${gamesJson[0].thumbnail}">`;
+			// <h1>${gamesJson[0].title}</h1>
+			// <h2>${gamesJson[0].short_description}</h2>
+			// <h3>${gamesJson[0].release_date}</h3>`;
+}
+function addGeneralGamesToHTML(gamesJson) {
+	var displayGames = document.getElementById("display-game");
+	for(let i=0; i<lim; i++) {
+		displayGames.innerHTML +=
+		`<a href="${gamesJson[i].freetogame_profile_url}" target="_blank">
+		<img src="${gamesJson[i].thumbnail}"><a>`
+		// <h1>${gamesJson[i].title}</h1>
+		// <h2>${gamesJson[i].short_description}</h2>
+		// <h3>${gamesJson[i].release_date}</h3>`;
+	}
 }

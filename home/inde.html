@@ -13,12 +13,14 @@
         <header>
             <nav>
                 <img class="logo_site" src="/img/gamerama.png">
-                <img id="search-icon" src="/img/search.png">
-                <input id="search-text" type="search-text" placeholder="Search">
+                <!-- <img id="search-icon" src="/img/search.png"> -->
+                <button type="submit">🔍<i class="fa fa-search"></i></button>
+                <input id="search-text" type="text" placeholder="Search..">
                 <ul class="header-text">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">PC</a></li>
-                    <li><a href="#">ALL</a></li>
+                    <li><a id="pc"      onclick="plataform(this.innerText)">PC</a></li>
+                    <li><a id="browser" onclick="filterGames(this.innerText)">BROWSER</a></li>
+                    <li><a id="all"     onclick="filterGames(this.innerText)">ALL</a></li>
+                    <li><a id="favorites">FAVORITES</a></li>
                 </ul>
             </nav>
         </header>
@@ -26,20 +28,28 @@
  <div class="content">
     <section class="side-bar">
         <div class="text-sidebar">
-            <a href="#" class="#h">HOME</a><hr>            
-            <a href="#" class="#C">CARD</a><hr>
-            <a href="#" class="#L">LIBRARY</a><hr>
-            <a href="#" class="#L">CATEGORIES</a>
+            <a href="#home"         id="home"   onclick="home()">HOME</a><hr>            
+            <a href="#mmofps"       id="cat-1"  onclick="filterGames(this.innerText)">MMOFPS</a><hr>
+            <a href="#fighting"     id="cat-2"  onclick="filterGames(this.innerText)">FIGHTING</a><hr>
+            <a href="#shooting"     id="cat-3"  onclick="filterGames(this.innerText)">SHOOTING</a><hr>
+            <a href="#survival"     id="cat-4"  onclick="filterGames(this.innerText)">SURVIVAL</a><hr>
+            <a href="#open-world"   id="cat-5"  onclick="filterGames(this.innerText)">OPEN-WORLD</a><hr>
+            <a href="#pvp"          id="cat-6"  onclick="filterGames(this.innerText)">PVP</a><hr>
+            <a href="#sports"       id="cat-7"  onclick="filterGames(this.innerText)">SPORTS</a>
+
+            
+
 
         </div>
     </section>
     <section class="page-content">
-        <div class="high-light-games">
+        <div id="high-light-game" class="high-light-games">
          
         </div>
-        <div class="display-games">
-            <img src="https://www.freetogame.com/g/10/thumbnail.jpg">
+        <div id="display-game" class="display-games">
+            
         </div>
+		<button id="show-more" type="button">SHOW MORE</button>`
     </section>
 </div>
     <script src="/home/call.js"></script>
