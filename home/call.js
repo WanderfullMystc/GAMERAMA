@@ -10,13 +10,15 @@ const options = {
 		'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
 	}
 };
-function home() {
+function getDataFromF_API() {
 	fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?short-by=popularity', options)
 	.then(gamesJson => gamesJson.json())
 	.then(gamesJson => handler(gamesJson))
 	.catch(err => console.error(err));
 }
-// filterGames();
+function home() {
+	getDataFromF_API();
+}
 
 function filterGamesByCategiry(category) {
 	console.log(category);
@@ -37,7 +39,6 @@ console.log(platafor);
 	.catch(err => console.error(err));
 
 }
-
 function handler(gamesJson) {
 	search(gamesJson);
 	addGeneralGamesToHTML(gamesJson);
@@ -69,7 +70,7 @@ function addGeneralGamesToHTML(gamesJson) {
 	for(let i=0; i<lim; i++) {
 		displayGames.innerHTML +=
 		`<a href="${gamesJson[i].freetogame_profile_url}" target="_blank">
-		<img src="${gamesJson[i].thumbnail}"><a>`
+		<img src="${gamesJson[i].thumbnail}"></a>`
 		// <h1>${gamesJson[i].title}</h1>
 		// <h2>${gamesJson[i].short_description}</h2>
 		// <h3>${gamesJson[i].release_date}</h3>`;
