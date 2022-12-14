@@ -17,9 +17,9 @@
                 <button type="submit">🔍<i class="fa fa-search"></i></button>
                 <input id="search-text" type="text" placeholder="Search..">
                 <ul class="header-text">
-                    <li><a id="pc"      onclick="plataform(this.innerText)">PC</a></li>
-                    <li><a id="browser" onclick="filterGames(this.innerText)">BROWSER</a></li>
-                    <li><a id="all"     onclick="filterGames(this.innerText)">ALL</a></li>
+                    <li><a id="pc"      onclick="filterGamesByPlataform(this.innerText)">PC</a></li>
+                    <li><a id="browser" onclick="filterGamesByPlataform(this.innerText)">BROWSER</a></li>
+                    <li><a id="all"     onclick="filterGamesByPlataform(this.innerText)">ALL</a></li>
                     <li><a id="favorites">FAVORITES</a></li>
                 </ul>
             </nav>
@@ -29,13 +29,13 @@
     <section class="side-bar">
         <div class="text-sidebar">
             <a href="#home"         id="home"   onclick="home()">HOME</a><hr>            
-            <a href="#mmofps"       id="cat-1"  onclick="filterGames(this.innerText)">MMOFPS</a><hr>
-            <a href="#fighting"     id="cat-2"  onclick="filterGames(this.innerText)">FIGHTING</a><hr>
-            <a href="#shooting"     id="cat-3"  onclick="filterGames(this.innerText)">SHOOTING</a><hr>
-            <a href="#survival"     id="cat-4"  onclick="filterGames(this.innerText)">SURVIVAL</a><hr>
-            <a href="#open-world"   id="cat-5"  onclick="filterGames(this.innerText)">OPEN-WORLD</a><hr>
-            <a href="#pvp"          id="cat-6"  onclick="filterGames(this.innerText)">PVP</a><hr>
-            <a href="#sports"       id="cat-7"  onclick="filterGames(this.innerText)">SPORTS</a>
+            <a href="#mmofps"       id="cat-1"  onclick="filterGamesByCategiry(this.innerText)">MMOFPS</a><hr>
+            <a href="#fighting"     id="cat-2"  onclick="filterGamesByCategiry(this.innerText)">FIGHTING</a><hr>
+            <a href="#shooting"     id="cat-3"  onclick="filterGamesByCategiry(this.innerText)">SHOOTING</a><hr>
+            <a href="#survival"     id="cat-4"  onclick="filterGamesByCategiry(this.innerText)">SURVIVAL</a><hr>
+            <a href="#open-world"   id="cat-5"  onclick="filterGamesByCategiry(this.innerText)">OPEN-WORLD</a><hr>
+            <a href="#pvp"          id="cat-6"  onclick="filterGamesByCategiry(this.innerText)">PVP</a><hr>
+            <a href="#sports"       id="cat-7"  onclick="filterGamesByCategiry(this.innerText)">SPORTS</a>
 
             
 
