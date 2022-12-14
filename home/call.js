@@ -18,6 +18,14 @@ function home() {
 }
 // filterGames();
 
+function filterGamesByCategiry(category) {
+	console.log(category);
+	// return category;
+}
+function filterGamesByPlataform(platafor) {
+	console.log(platafor);
+	// return platafor;
+}
 function filterGames(category) {
 	// var test = documment.getElementById("cat-1");
 var platafor = filterPlataform(k);
@@ -29,7 +37,7 @@ console.log(platafor);
 	.catch(err => console.error(err));
 
 }
-console.log(typeof(document.getElementById("search-text")));
+
 function handler(gamesJson) {
 	search(gamesJson);
 	addGeneralGamesToHTML(gamesJson);
