@@ -112,3 +112,10 @@ nav a:hover
     padding: 5vh;
     border-radius: 10vh;
 }
+
+.page-content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
