@@ -1,7 +1,9 @@
 
 let position = [];
 let data;
-let lim = 10;
+let lim = 9;
+let category;
+let plataform = "all";
 let textLabel = document.getElementById("search-text");
 const options = {
 	method: 'GET',
@@ -19,24 +21,23 @@ function getDataFromF_API() {
 function home() {
 	getDataFromF_API();
 }
-
-function filterGamesByCategiry(category) {
+function filterGamesByCategiry(category_html) {
+	plataform = category_html;
+}
+function filterGamesByPlataform(platafor_html) {
+	plataform = platafor_html;
+}
+function filterGames() {
+	console.log(plataform);
 	console.log(category);
-	// return category;
-}
-function filterGamesByPlataform(platafor) {
-	console.log(platafor);
-	// return platafor;
-}
-function filterGames(category) {
-	// var test = documment.getElementById("cat-1");
-var platafor = filterPlataform(k);
-var category = filterCategory();
-console.log(platafor);
-	fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?platform=${plataform}&category=${category}&sort-by=release-date`, options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
+	console.log(category);
+	let dirAPI = category != undefined?"platform="+category:"";
+	console.log(dirAPI);
+	// 'https://free-to-play-games-database.p.rapidapi.com/api/games?platform=browser&category=mmorpg&sort-by=release-date
+	fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?${dirAPI}&category=${category}`, options)
+		.then(response => response.json())
+		.then(response => console.log(response))
+		.catch(err => console.error(err));
 
 }
 function handler(gamesJson) {
