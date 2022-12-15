@@ -11,13 +11,14 @@ const options = {
 	}
 };
 function home() {
-	fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?short-by=popularity', options)
+	fetch('https://free-to-play-games-database.p.rapidapi.com/api/game?id=452', options)
 	.then(gamesJson => gamesJson.json())
 	.then(gamesJson => handler(gamesJson))
 	.catch(err => console.error(err));
+	
 }
 // filterGames();
-
+home();
 function filterGamesByCategiry(category) {
 	console.log(category);
 	// return category;
